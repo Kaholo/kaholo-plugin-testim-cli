@@ -1,14 +1,10 @@
-const util = require("util");
-const childProcess = require("child_process");
 const { docker } = require("@kaholo/plugin-library");
 
+const { trimCommand, exec } = require("./helpers");
 const {
   TESTIM_DOCKER_IMAGE,
   ENVIRONMENTAL_VARIABLES_NAMES,
-  TESTIM_CLI_NAME,
 } = require("./consts.json");
-
-const exec = util.promisify(childProcess.exec);
 
 async function runCommand(params) {
   const {
@@ -25,7 +21,7 @@ async function runCommand(params) {
   const tokenArg = `--token=$${ENVIRONMENTAL_VARIABLES_NAMES.TESTIM_TOKEN}`;
   const projectArg = `--project=$${ENVIRONMENTAL_VARIABLES_NAMES.TESTIM_PROJECT}`;
   const gridArg = `--grid="${testimGrid}"`;
-  const preparedCommand = docker.sanitizeCommand(`${testimCommand} ${tokenArg} ${projectArg} ${gridArg}`, TESTIM_CLI_NAME);
+  const preparedCommand = trimCommand(`${testimCommand} ${tokenArg} ${projectArg} ${gridArg}`);
 
   const dockerCommand = docker.buildDockerCommand({
     command: preparedCommand,
