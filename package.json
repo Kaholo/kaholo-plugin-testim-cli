@@ -1,7 +1,6 @@
 {
-  "name": "kaholo-plugin-template",
-  "version": "1.0.0",
-  "description": "A template for Kaholo plugin development",
+  "name": "kaholo-plugin-testim-cli",
+  "description": "Kaholo plugin for Testim CLI",
   "main": "app.js",
   "scripts": {
     "test": "npx jest .",
@@ -10,18 +9,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kaholo/kaholo-plugin-template.git"
+    "url": "git+https://github.com/Kaholo/kaholo-plugin-testim.git"
   },
   "author": "Kaholo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kaholo/kaholo-plugin-template/issues"
+    "url": "https://github.com/Kaholo/kaholo-plugin-testim/issues"
   },
-  "homepage": "https://github.com/Kaholo/kaholo-plugin-template#readme",
+  "homepage": "https://github.com/Kaholo/kaholo-plugin-testim#readme",
   "devDependencies": {
-    "eslint": "^8.8.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.4",
-    "jest": "^27.5.0"
+    "eslint": "8.8.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.25.4",
+    "jest": "27.5.0"
+  },
+  "dependencies": {
+    "@kaholo/plugin-library": "^2.0.0",
+    "@testim/testim-cli": "3.250.0"
   }
 }

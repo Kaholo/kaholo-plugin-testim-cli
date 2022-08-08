@@ -1,8 +1,6 @@
-function hello(name) {
-  const greeting = `hello ${name}`;
-  return greeting;
-}
+const kaholoPluginLibrary = require("@kaholo/plugin-library");
+const testimCli = require("./testim-cli");
 
-module.exports = {
-  hello,
-};
+module.exports = kaholoPluginLibrary.bootstrap({
+  runCommand: testimCli.runCommand,
+});
