@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kaholo/kaholo-plugin-testim.git"
+    "url": "git+https://github.com/Kaholo/kaholo-plugin-testim-cli.git"
   },
   "author": "Kaholo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kaholo/kaholo-plugin-testim/issues"
+    "url": "https://github.com/Kaholo/kaholo-plugin-testim-cli/issues"
   },
-  "homepage": "https://github.com/Kaholo/kaholo-plugin-testim#readme",
+  "homepage": "https://github.com/Kaholo/kaholo-plugin-testim-cli#readme",
   "devDependencies": {
     "eslint": "8.8.0",
     "eslint-config-airbnb-base": "15.0.0",
