@@ -1,18 +1,14 @@
+const util = require("util");
+const childProcess = require("child_process");
 const { docker } = require("@kaholo/plugin-library");
-const {
-  exec,
-  trimCommand,
-} = require("./helpers");
+
 const {
   TESTIM_DOCKER_IMAGE,
+  ENVIRONMENTAL_VARIABLES_NAMES,
+  TESTIM_CLI_NAME,
 } = require("./consts.json");
 
-const environmentalVariablesNames = {
-  testimToken: "TESTIM_TOKEN",
-  testimProject: "TESTIM_PROJECT",
-};
-
-const shellEnvironmentalVariables = {};
+const exec = util.promisify(childProcess.exec);
 
 async function runCommand(params) {
   const {
@@ -22,13 +18,14 @@ async function runCommand(params) {
     testimCommand,
   } = params;
 
-  shellEnvironmentalVariables[environmentalVariablesNames.testimToken] = testimToken;
-  shellEnvironmentalVariables[environmentalVariablesNames.testimProject] = testimProject;
+  const shellEnvironmentalVariables = {};
+  shellEnvironmentalVariables[ENVIRONMENTAL_VARIABLES_NAMES.TESTIM_PROJECT] = testimToken;
+  shellEnvironmentalVariables[ENVIRONMENTAL_VARIABLES_NAMES.TESTIM_PROJECT] = testimProject;
 
-  const tokenArg = `--token=$${environmentalVariablesNames.testimToken}`;
-  const projectArg = `--project=$${environmentalVariablesNames.testimProject}`;
+  const tokenArg = `--token=$${ENVIRONMENTAL_VARIABLES_NAMES.TESTIM_TOKEN}`;
+  const projectArg = `--project=$${ENVIRONMENTAL_VARIABLES_NAMES.TESTIM_PROJECT}`;
   const gridArg = `--grid="${testimGrid}"`;
-  const preparedCommand = trimCommand(`${testimCommand} ${tokenArg} ${projectArg} ${gridArg}`);
+  const preparedCommand = docker.sanitizeCommand(`${testimCommand} ${tokenArg} ${projectArg} ${gridArg}`, TESTIM_CLI_NAME);
 
   const dockerCommand = docker.buildDockerCommand({
     command: preparedCommand,
