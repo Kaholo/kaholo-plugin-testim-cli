@@ -1,8 +1,6 @@
-const { docker } = require("@kaholo/plugin-library");
-
-const { trimCommand, exec } = require("./helpers");
+const { trimCommand, exec, assertPathExistence } = require("./helpers");
 const {
-  TESTIM_DOCKER_IMAGE,
+  TESTIM_CLI_NAME,
   ENVIRONMENTAL_VARIABLES_NAMES,
 } = require("./consts.json");
 
@@ -12,10 +10,15 @@ async function runCommand(params) {
     testimProject,
     testimGrid,
     testimCommand,
+    workingDirectory,
   } = params;
 
+  if (workingDirectory) {
+    await assertPathExistence(workingDirectory);
+  }
+
   const shellEnvironmentalVariables = {};
-  shellEnvironmentalVariables[ENVIRONMENTAL_VARIABLES_NAMES.TESTIM_PROJECT] = testimToken;
+  shellEnvironmentalVariables[ENVIRONMENTAL_VARIABLES_NAMES.TESTIM_TOKEN] = testimToken;
   shellEnvironmentalVariables[ENVIRONMENTAL_VARIABLES_NAMES.TESTIM_PROJECT] = testimProject;
 
   const tokenArg = `--token=$${ENVIRONMENTAL_VARIABLES_NAMES.TESTIM_TOKEN}`;
@@ -23,16 +26,17 @@ async function runCommand(params) {
   const gridArg = `--grid="${testimGrid}"`;
   const preparedCommand = trimCommand(`${testimCommand} ${tokenArg} ${projectArg} ${gridArg}`);
 
-  const dockerCommand = docker.buildDockerCommand({
-    command: preparedCommand,
-    image: TESTIM_DOCKER_IMAGE,
-  });
+  const commandToExecute = `${TESTIM_CLI_NAME} ${preparedCommand}`;
 
   const {
     stdout,
     stderr,
-  } = await exec(dockerCommand, {
-    env: shellEnvironmentalVariables,
+  } = await exec(commandToExecute, {
+    env: {
+      ...process.env,
+      ...shellEnvironmentalVariables,
+    },
+    cwd: workingDirectory || process.cwd(),
   });
 
   if (stderr && !stdout) {
