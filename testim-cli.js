@@ -1,4 +1,4 @@
-const { trimCommand, exec } = require("./helpers");
+const { trimCommand, exec, assertPathExistence } = require("./helpers");
 const {
   TESTIM_CLI_NAME,
   ENVIRONMENTAL_VARIABLES_NAMES,
@@ -10,6 +10,7 @@ async function runCommand(params) {
     testimProject,
     testimGrid,
     testimCommand,
+    workingDirectory,
   } = params;
 
   const shellEnvironmentalVariables = {};
@@ -23,6 +24,10 @@ async function runCommand(params) {
 
   const commandToExecute = `${TESTIM_CLI_NAME} ${preparedCommand}`;
 
+  if (typeof(workingDirectory) !== "undefined") {
+    await assertPathExistence(workingDirectory);
+  }
+
   const {
     stdout,
     stderr,
@@ -31,6 +36,7 @@ async function runCommand(params) {
       ...process.env,
       ...shellEnvironmentalVariables,
     },
+    cwd: workingDirectory,
   });
 
   if (stderr && !stdout) {

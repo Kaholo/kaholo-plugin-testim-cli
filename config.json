@@ -1,7 +1,7 @@
 {
   "name": "testim-cli",
   "viewName": "Testim CLI",
-  "version": "0.2.0-beta",
+  "version": "0.3.0-beta",
   "type": "executer",
   "execProgram": "node",
   "imgUrl": "logo.png",
@@ -29,7 +29,7 @@
     "params": [
       {
         "name": "testimToken",
-        "viewName": "Testim CLI access token",
+        "viewName": "Testim CLI Access Token",
         "description": "The authentication token (to be used with --token in the command)",
         "type": "vault",
         "placeholder": "CDbDF05hRsTCI49Y0lCuYsdgxoLA2OHTzJdKPT3nUhx4krowNQ",
@@ -53,13 +53,20 @@
       "viewName": "Run Testim Command",
       "params": [
         {
+          "name": "workingDirectory",
+          "viewName": "Working Directory",
+          "description": "Path to a directory on the Kaholo agent where the command should be run",
+          "placeholder": "testrepo/grid001",
+          "type": "string",
+          "required": false
+        },
+        {
           "name": "testimGrid",
           "viewName": "Testim Grid Name",
           "description": "The name of the Grid (to used with --grid in the command)",
           "type": "string",
           "placeholder": "Testim-Grid",
-          "required": true,
-          "learnUrl": "https://help.testim.io/docs/the-command-line-cli"
+          "required": true
         },  
         {
           "name": "testimCommand",
@@ -67,7 +74,8 @@
           "type": "string",
           "description": "Testim command (excluding --token, --project, and --grid arguments)",
           "placeholder": "testim --version",
-          "required": true
+          "required": false,
+          "learnUrl": "https://help.testim.io/docs/the-command-line-cli"
         }
       ]
     }
