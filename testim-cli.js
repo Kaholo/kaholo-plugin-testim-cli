@@ -24,7 +24,7 @@ async function runCommand(params) {
 
   const commandToExecute = `${TESTIM_CLI_NAME} ${preparedCommand}`;
 
-  if (typeof(workingDirectory) !== "undefined") {
+  if (workingDirectory) {
     await assertPathExistence(workingDirectory);
   }
 
@@ -36,7 +36,7 @@ async function runCommand(params) {
       ...process.env,
       ...shellEnvironmentalVariables,
     },
-    cwd: workingDirectory,
+    cwd: workingDirectory || process.cwd(),
   });
 
   if (stderr && !stdout) {
