@@ -14,7 +14,7 @@ async function runCommand(params) {
   } = params;
 
   const shellEnvironmentalVariables = {};
-  shellEnvironmentalVariables[ENVIRONMENTAL_VARIABLES_NAMES.TESTIM_PROJECT] = testimToken;
+  shellEnvironmentalVariables[ENVIRONMENTAL_VARIABLES_NAMES.TESTIM_TOKEN] = testimToken;
   shellEnvironmentalVariables[ENVIRONMENTAL_VARIABLES_NAMES.TESTIM_PROJECT] = testimProject;
 
   const tokenArg = `--token=$${ENVIRONMENTAL_VARIABLES_NAMES.TESTIM_TOKEN}`;
