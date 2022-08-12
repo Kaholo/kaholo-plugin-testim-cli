@@ -1,0 +1,83 @@
+{
+  "name": "testim-cli",
+  "viewName": "Testim CLI",
+  "version": "1.0.0",
+  "type": "executer",
+  "execProgram": "node",
+  "imgUrl": "logo.png",
+  "main": "app.js",
+  "description": "Kaholo Plugin for Testim CLI",
+  "category": [
+    "Testing"
+  ],
+  "keywords": [
+    "testim",
+    "cli",
+    "test",
+    "kubectl"
+  ],
+  "settings": [
+    {
+      "name": "testimGrid",
+      "viewName": "Default Grid",
+      "type": "string",
+      "placeholder": "Testim-Grid"
+    }
+  ],
+  "auth": {
+    "authId": "testimAccount",
+    "params": [
+      {
+        "name": "testimToken",
+        "viewName": "Testim CLI Access Token",
+        "description": "The authentication token (to be used with --token in the command)",
+        "type": "vault",
+        "placeholder": "CDbDF05hRsTCI49Y0lCuYsdgxoLA2OHTzJdKPT3nUhx4krowNQ",
+        "required": true,
+        "learnUrl": "https://help.testim.io/docs/the-command-line-cli"
+      },
+      {
+        "name": "testimProject",
+        "viewName": "Testim Project ID",
+        "description": "The project ID (to be used with --project in the command)",
+        "type": "string",
+        "placeholder": "cnTGAVKSHDeCLaRJlQr3",
+        "required": true,
+        "learnUrl": "https://help.testim.io/docs/the-command-line-cli"
+      }
+    ]
+  },
+  "methods": [
+    {
+      "name": "runCommand",
+      "viewName": "Run Testim Command",
+      "params": [
+        {
+          "name": "workingDirectory",
+          "viewName": "Working Directory",
+          "description": "Path to a directory on the Kaholo agent where the command should be run",
+          "placeholder": "testrepo/grid001",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "testimGrid",
+          "viewName": "Testim Grid Name",
+          "description": "The name of the Grid (to used with --grid in the command)",
+          "type": "string",
+          "placeholder": "Testim-Grid",
+          "required": true
+        },  
+        {
+          "name": "testimCommand",
+          "viewName": "Command",
+          "type": "string",
+          "description": "Testim command (excluding --token, --project, and --grid arguments)",
+          "placeholder": "testim --version",
+          "required": false,
+          "learnUrl": "https://help.testim.io/docs/the-command-line-cli"
+        }
+      ]
+    }
+  ]
+}
