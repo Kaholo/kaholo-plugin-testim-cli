@@ -13,6 +13,10 @@ async function runCommand(params) {
     workingDirectory,
   } = params;
 
+  if (workingDirectory) {
+    await assertPathExistence(workingDirectory);
+  }
+
   const shellEnvironmentalVariables = {};
   shellEnvironmentalVariables[ENVIRONMENTAL_VARIABLES_NAMES.TESTIM_TOKEN] = testimToken;
   shellEnvironmentalVariables[ENVIRONMENTAL_VARIABLES_NAMES.TESTIM_PROJECT] = testimProject;
@@ -23,10 +27,6 @@ async function runCommand(params) {
   const preparedCommand = trimCommand(`${testimCommand} ${tokenArg} ${projectArg} ${gridArg}`);
 
   const commandToExecute = `${TESTIM_CLI_NAME} ${preparedCommand}`;
-
-  if (workingDirectory) {
-    await assertPathExistence(workingDirectory);
-  }
 
   const {
     stdout,
