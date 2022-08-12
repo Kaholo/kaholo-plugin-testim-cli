@@ -1,5 +1,4 @@
 {
-  "TESTIM_NPM_PACKAGE": "@testim/testim-cli",
   "TESTIM_CLI_NAME": "testim",
   "ENVIRONMENTAL_VARIABLES_NAMES": {
     "TESTIM_TOKEN": "TESTIM_TOKEN",

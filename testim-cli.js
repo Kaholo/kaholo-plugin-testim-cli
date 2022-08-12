@@ -1,8 +1,5 @@
-const { docker } = require("@kaholo/plugin-library");
-
 const { trimCommand, exec } = require("./helpers");
 const {
-  TESTIM_NPM_PACKAGE,
   TESTIM_CLI_NAME,
   ENVIRONMENTAL_VARIABLES_NAMES,
 } = require("./consts.json");
