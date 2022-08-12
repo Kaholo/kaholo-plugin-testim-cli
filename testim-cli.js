@@ -2,7 +2,8 @@ const { docker } = require("@kaholo/plugin-library");
 
 const { trimCommand, exec } = require("./helpers");
 const {
-  TESTIM_DOCKER_IMAGE,
+  TESTIM_NPM_PACKAGE,
+  TESTIM_CLI_NAME,
   ENVIRONMENTAL_VARIABLES_NAMES,
 } = require("./consts.json");
 
@@ -23,16 +24,16 @@ async function runCommand(params) {
   const gridArg = `--grid="${testimGrid}"`;
   const preparedCommand = trimCommand(`${testimCommand} ${tokenArg} ${projectArg} ${gridArg}`);
 
-  const dockerCommand = docker.buildDockerCommand({
-    command: preparedCommand,
-    image: TESTIM_DOCKER_IMAGE,
-  });
+  const commandToExecute = `{ npm install -g ${TESTIM_NPM_PACKAGE} > /dev/null; } && ${TESTIM_CLI_NAME} ${preparedCommand}`;
 
   const {
     stdout,
     stderr,
-  } = await exec(dockerCommand, {
-    env: shellEnvironmentalVariables,
+  } = await exec(commandToExecute, {
+    env: {
+      ...process.env,
+      ...shellEnvironmentalVariables,
+    },
   });
 
   if (stderr && !stdout) {
