@@ -36,3 +36,6 @@ This is the Testim command you wish to execute with the exception of `--token`, 
 The simplest test command you can run even without valid token or project is `testim --version`.
 
 If the command is omitted, this is equivalent to running command `testim`.
+
+### Parameter: Install Latest Testim CLI
+If checked, the latest Testim CLI will be installed before running the command. If already installed, unchecking this option may speed up the execution by a few seconds.
