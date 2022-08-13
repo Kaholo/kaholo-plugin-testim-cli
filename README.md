@@ -12,9 +12,9 @@ The expected error should the CLI NOT be properly installed is:
 ## Access and Authentication
 Authentication is controlled by means of a Testim CLI Access Token and a Testim Project Id. These can be found at Setting | CLI when logged into the Testim Automate website. For example,
 
-    npm i -g @testim/testim-cli && testim --token "CDbDF05hRsTCI49Y0lCuYbI49Y0lCuYbKPYbKPT3nUhx4kgayNQ" --project "cLaRJlTIXXeCLaRJlQr3" --grid "Testim-Grid"
+    npm i -g @testim/testim-cli && testim --token "CDbDF05hRsTCI49Y0lCuYbI49Y0lCuYbKPYbKPT3nUhx4klgbNQ" --project "cLaRJlTIXXeCLaRJlQr3" --grid "Testim-Grid"
 
-In this example the Testim CLI Access Token is `CDbDF05hRsTCI49Y0lCuYbI49Y0lCuYbKPYbKPT3nUhx4kgayNQ` and the Testim Project Id is `cLaRJlTIXXeCLaRJlQr3`.
+In this example the Testim CLI Access Token is `CDbDF05hRsTCI49Y0lCuYbI49Y0lCuYbKPYbKPT3nUhx4klgbNQ` and the Testim Project Id is `cLaRJlTIXXeCLaRJlQr3`.
 
 These two parameters are stored in Kaholo Accounts, which is found alongside Plugin Settings, accessed by clicking on the plugin's name in Kaholo's Setting | Plugins page. The Default Grid can also be configured there in Settings.
 
