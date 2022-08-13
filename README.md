@@ -2,7 +2,7 @@
 This plugin allows pipelines to use the Testim CLI. The Testim CLI is a command-line tool made for use with [Testim Automate](https://www.testim.io/test-automation-tool/). Testim Automate is fast and flexible authoring of AI-powered end-to-end tests—built for scale.
 
 ## Prerequisites
-The Testim CLI must be installed on the Kaholo Agent(s) to use this plugin. To install the Testim CLI, use the Command Line plugin to run command `npm i -g @testim/testim-cli`. Note that simply putting `@testim/testim-cli` in package.json of the plugin will not work as expected because of unusual features of this npm package.
+The Testim CLI must be installed on the Kaholo Agent(s) to use this plugin. To install the Testim CLI, use the Command Line plugin to run command `npm i -g @testim/testim-cli`. Note that simply putting `@testim/testim-cli` in package.json of the plugin will not work.
 
 If this step is not carried out the expected error is:
 

@@ -1,7 +1,7 @@
 {
   "name": "testim-cli",
   "viewName": "Testim CLI",
-  "version": "1.0.0",
+  "version": "1.0.0-beta001",
   "type": "executer",
   "execProgram": "node",
   "imgUrl": "logo.png",
@@ -76,6 +76,13 @@
           "placeholder": "testim --version",
           "required": false,
           "learnUrl": "https://help.testim.io/docs/the-command-line-cli"
+        },
+        {
+          "name": "testimInstall",
+          "viewName": "Install Latest Testim CLI",
+          "type": "boolean",
+          "description": "Installs the latest Testim CLI npm package globally on the Kaholo Agent",
+          "default": true
         }
       ]
     }
