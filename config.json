@@ -1,7 +1,7 @@
 {
   "name": "testim-cli",
   "viewName": "Testim CLI",
-  "version": "1.0.0-beta001",
+  "version": "1.0.0",
   "type": "executer",
   "execProgram": "node",
   "imgUrl": "logo.png",
