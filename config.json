@@ -69,7 +69,7 @@
           "learnUrl": "https://help.testim.io/docs/the-command-line-cli"
         },
         {
-          "name": "testimInstall",
+          "name": "installTestim",
           "viewName": "Install Latest Testim CLI",
           "type": "boolean",
           "description": "Installs the latest Testim CLI npm package globally on the Kaholo Agent",

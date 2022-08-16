@@ -12,7 +12,7 @@ async function runCommand(params) {
     testimGrid,
     testimCommand,
     workingDirectory,
-    testimInstall,
+    installTestim,
   } = params;
 
   if (workingDirectory) {
@@ -29,7 +29,7 @@ async function runCommand(params) {
   const preparedCommand = trimCommand(`${testimCommand} ${tokenArg} ${projectArg} ${gridArg}`);
 
   let commandToExecute = "";
-  if (testimInstall) {
+  if (installTestim) {
     commandToExecute = `{ npm install -g ${TESTIM_NPM_PACKAGE} > /dev/null; } && ${TESTIM_CLI_NAME} ${preparedCommand}`;
   } else {
     commandToExecute = `${TESTIM_CLI_NAME} ${preparedCommand}`;
