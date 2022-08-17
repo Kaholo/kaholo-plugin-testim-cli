@@ -32,7 +32,6 @@
         "viewName": "Testim CLI Access Token",
         "description": "The authentication token (to be used with --token in the command)",
         "type": "vault",
-        "placeholder": "CDbDF05hRsTCI49Y0lCuYsdgxoLA2OHTzJdKPT3nUhx4krowNQ",
         "required": true,
         "learnUrl": "https://help.testim.io/docs/the-command-line-cli"
       },
@@ -53,14 +52,6 @@
       "viewName": "Run Testim Command",
       "params": [
         {
-          "name": "workingDirectory",
-          "viewName": "Working Directory",
-          "description": "Path to a directory on the Kaholo agent where the command should be run",
-          "placeholder": "testrepo/grid001",
-          "type": "string",
-          "required": false
-        },
-        {
           "name": "testimGrid",
           "viewName": "Testim Grid Name",
           "description": "The name of the Grid (to used with --grid in the command)",
@@ -76,6 +67,21 @@
           "placeholder": "testim --version",
           "required": false,
           "learnUrl": "https://help.testim.io/docs/the-command-line-cli"
+        },
+        {
+          "name": "installTestim",
+          "viewName": "Install Latest Testim CLI",
+          "type": "boolean",
+          "description": "Installs the latest Testim CLI npm package globally on the Kaholo Agent",
+          "default": true
+        },
+        {
+          "name": "workingDirectory",
+          "viewName": "Working Directory",
+          "description": "Path to a directory on the Kaholo agent where the command should be run",
+          "placeholder": "/usr/src/app/workspace",
+          "type": "string",
+          "required": false
         }
       ]
     }

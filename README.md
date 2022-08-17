@@ -2,9 +2,9 @@
 This plugin allows pipelines to use the Testim CLI. The Testim CLI is a command-line tool made for use with [Testim Automate](https://www.testim.io/test-automation-tool/). Testim Automate is fast and flexible authoring of AI-powered end-to-end tests—built for scale.
 
 ## Prerequisites
-The Testim CLI must be installed on the Kaholo Agent(s) to use this plugin. To install the Testim CLI, use the Command Line plugin to run command `npm i -g @testim/testim-cli`. Note that simply putting `@testim/testim-cli` in package.json of the plugin will not work as expected because of unusual features of this npm package.
+The Testim CLI must be installed on the Kaholo Agent(s) to use this plugin. This happens by default when running method "Run Testim CLI Command". To install the Testim CLI manually and see the resulting output, one can also use the Command Line plugin to run command `npm i -g @testim/testim-cli`. Note that simply putting `@testim/testim-cli` in package.json of the plugin will not work.
 
-If this step is not carried out the expected error is:
+The expected error should the CLI NOT be properly installed is:
 
     Error : Error: Command failed: testim --version --token=$TESTIM_TOKEN --project=$TESTIM_PROJECT --grid="Testim-Grid"
     /bin/sh: 1: testim: not found
@@ -12,9 +12,9 @@ If this step is not carried out the expected error is:
 ## Access and Authentication
 Authentication is controlled by means of a Testim CLI Access Token and a Testim Project Id. These can be found at Setting | CLI when logged into the Testim Automate website. For example,
 
-    npm i -g @testim/testim-cli && testim --token "CDbDF05hRsTCI49Y0lCuYbI49Y0lCuYbKPYbKPT3nUhx4kgayNQ" --project "cLaRJlTIXXeCLaRJlQr3" --grid "Testim-Grid"
+    npm i -g @testim/testim-cli && testim --token "CDbDF05hRsTCI49Y0lCuYbI49Y0lCuYbKPYbKPT3nUhx4klgbNQ" --project "cLaRJlTIXXeCLaRJlQr3" --grid "Testim-Grid"
 
-In this example the Testim CLI Access Token is `CDbDF05hRsTCI49Y0lCuYbI49Y0lCuYbKPYbKPT3nUhx4kgayNQ` and the Testim Project Id is `cLaRJlTIXXeCLaRJlQr3`.
+In this example the Testim CLI Access Token is `CDbDF05hRsTCI49Y0lCuYbI49Y0lCuYbKPYbKPT3nUhx4klgbNQ` and the Testim Project Id is `cLaRJlTIXXeCLaRJlQr3`.
 
 These two parameters are stored in Kaholo Accounts, which is found alongside Plugin Settings, accessed by clicking on the plugin's name in Kaholo's Setting | Plugins page. The Default Grid can also be configured there in Settings.
 
@@ -36,3 +36,6 @@ This is the Testim command you wish to execute with the exception of `--token`, 
 The simplest test command you can run even without valid token or project is `testim --version`.
 
 If the command is omitted, this is equivalent to running command `testim`.
+
+### Parameter: Install Latest Testim CLI
+If checked, the latest Testim CLI will be installed before running the command. If already installed, unchecking this option may speed up the execution by a few seconds.

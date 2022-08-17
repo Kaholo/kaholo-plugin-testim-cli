@@ -132,3 +132,6 @@ dist
 .yarn/install-state.gz
 .pnp.*
 .kaholotmp
+
+# zip
+.zip

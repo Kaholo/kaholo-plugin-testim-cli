@@ -3,5 +3,6 @@
   "ENVIRONMENTAL_VARIABLES_NAMES": {
     "TESTIM_TOKEN": "TESTIM_TOKEN",
     "TESTIM_PROJECT": "TESTIM_PROJECT"
-  }
+  },
+  "TESTIM_NPM_PACKAGE": "@testim/testim-cli"
 }
