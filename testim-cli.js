@@ -1,9 +1,10 @@
 const { trimCommand, exec, assertPathExistence } = require("./helpers");
 const {
-  TESTIM_CLI_NAME,
+  TESTIM_MODULE_PATH,
   ENVIRONMENTAL_VARIABLES_NAMES,
-  TESTIM_NPM_PACKAGE,
 } = require("./consts.json");
+
+const PLUGIN_ABSOLUTE_PATH = module.path;
 
 async function runCommand(params) {
   const {
@@ -12,7 +13,6 @@ async function runCommand(params) {
     testimGrid,
     testimCommand,
     workingDirectory,
-    installTestim,
   } = params;
 
   if (workingDirectory) {
@@ -28,12 +28,7 @@ async function runCommand(params) {
   const gridArg = `--grid="${testimGrid}"`;
   const preparedCommand = trimCommand(`${testimCommand} ${tokenArg} ${projectArg} ${gridArg}`);
 
-  let commandToExecute = "";
-  if (installTestim) {
-    commandToExecute = `{ npm install -g ${TESTIM_NPM_PACKAGE} > /dev/null; } && ${TESTIM_CLI_NAME} ${preparedCommand}`;
-  } else {
-    commandToExecute = `${TESTIM_CLI_NAME} ${preparedCommand}`;
-  }
+  const commandToExecute = `node ${PLUGIN_ABSOLUTE_PATH}/node_modules/${TESTIM_MODULE_PATH} ${preparedCommand}`;
 
   const {
     stdout,
