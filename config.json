@@ -22,6 +22,13 @@
       "viewName": "Default Grid",
       "type": "string",
       "placeholder": "Testim-Grid"
+    },
+    {
+      "name": "bsBinaryUrl",
+      "viewName": "BrowserStack binary url",
+      "type": "string",
+      "required": false,
+      "placeholder": "https://www.browserstack.com/browserstack-local/BrowserStackLocal-alpine.zip"
     }
   ],
   "auth": {
@@ -43,6 +50,15 @@
         "placeholder": "cnTGAVKSHDeCLaRJlQr3",
         "required": true,
         "learnUrl": "https://help.testim.io/docs/the-command-line-cli"
+      },
+      {
+        "name": "bsApiKey",
+        "viewName": "BrowserStackApiKey",
+        "type": "vault",
+        "required": false,
+        "placeholder": "yzxxxxLm4vZxxxxEER2v",
+        "description": "BrowserStack Api Key, required for \"Run Testim on BrowserStackLocal\" method",
+        "learnUrl": "https://www.browserstack.com/docs/iaam/security/manage-access-keys"
       }
     ]
   },
@@ -58,7 +74,7 @@
           "type": "string",
           "placeholder": "Testim-Grid",
           "required": true
-        },  
+        },
         {
           "name": "testimCommand",
           "viewName": "Command",
@@ -82,6 +98,60 @@
           "placeholder": "/usr/src/app/workspace",
           "type": "string",
           "required": false
+        }
+      ]
+    },
+    {
+      "name": "runCommandBS",
+      "viewName": "run Testim on BrowserStackLocal",
+      "params": [
+        {
+          "name": "localId",
+          "viewName": "BrowserStack Local Identifier",
+          "type": "string",
+          "required": false,
+          "description": "Identifier of BrowserStack Local connection",
+          "learnUrl": "https://www.browserstack.com/docs/automate/cypress/local-testing/ci-cd"
+        },
+        {
+          "name": "testimGrid",
+          "viewName": "Testim grid",
+          "type": "string",
+          "required": false,
+          "description": "Testim grid name to use",
+          "learnUrl": "https://help.testim.io/docs/grid-management"
+        },
+        {
+          "name": "shouldInstallTestimCLI",
+          "viewName": "Install Latest Testim CLI",
+          "type": "boolean",
+          "description": "Installs the latest Testim CLI npm package globally on the Kaholo Agent",
+          "default": true
+        },
+        {
+          "name": "testimCommand",
+          "viewName": "Command",
+          "type": "string",
+          "description": "Testim command (excluding --token, --project, and --grid arguments)",
+          "placeholder": "testim --version",
+          "required": false,
+          "learnUrl": "https://help.testim.io/docs/the-command-line-cli"
+        },
+        {
+          "name": "workingDirectory",
+          "viewName": "Working Directory",
+          "description": "Path to a directory on the Kaholo agent where the command should be run",
+          "placeholder": "/usr/src/app/workspace",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "bsOptionsFile",
+          "viewName": "Path to BrowserStackOptions",
+          "description": "path to the file with BrowserStackOptions (relative to /twiddlebug/workspace)",
+          "placeholder": "/options.json",
+          "type": "string",
+          "required": true
         }
       ]
     }

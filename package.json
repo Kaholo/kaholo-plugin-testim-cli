@@ -24,6 +24,8 @@
     "jest": "27.5.0"
   },
   "dependencies": {
-    "@kaholo/plugin-library": "^2.0.0"
+    "@kaholo/plugin-library": "^2.0.0",
+    "decompress": "4.2.1",
+    "got": "11.8.3"
   }
 }
