@@ -26,6 +26,7 @@
   "dependencies": {
     "@kaholo/plugin-library": "^2.0.0",
     "decompress": "4.2.1",
-    "got": "11.8.3"
+    "got": "11.8.3",
+    "@testim/testim-cli": "^3.251.0"
   }
 }

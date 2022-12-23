@@ -39,6 +39,7 @@
         "viewName": "Testim CLI Access Token",
         "description": "The authentication token (to be used with --token in the command)",
         "type": "vault",
+        "placeholder": "CDbDF05hRsTCI49Y0lCuYsdgxoLA2OHTzJdKPT3nUhx4krowNQ",
         "required": true,
         "learnUrl": "https://help.testim.io/docs/the-command-line-cli"
       },
