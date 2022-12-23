@@ -102,7 +102,7 @@
           "name": "localId",
           "viewName": "BrowserStack Local Identifier",
           "type": "string",
-          "required": false,
+          "required": true,
           "description": "Identifier of BrowserStack Local connection",
           "learnUrl": "https://www.browserstack.com/docs/automate/cypress/local-testing/ci-cd"
         },
@@ -125,7 +125,7 @@
           "name": "testimCommand",
           "viewName": "Command",
           "type": "string",
-          "description": "Testim command (excluding --token, --project, and --grid arguments)",
+          "description": "Testim command (excluding --token, --project, --grid and --browserstack-options arguments)",
           "placeholder": "testim --version",
           "required": false,
           "learnUrl": "https://help.testim.io/docs/the-command-line-cli"

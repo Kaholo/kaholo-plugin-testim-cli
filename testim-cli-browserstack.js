@@ -43,7 +43,6 @@ async function runCommand(params) {
 
   const execOutput = {
     stdout: "",
-    stderr: "",
   };
   try {
     const inputArgs = [
@@ -62,12 +61,11 @@ async function runCommand(params) {
     );
     child.stdout.on("data", (data) => {
       process.stdout.write(data.toString());
-      execOutput.stdout += data ? data.toString() : "";
+      execOutput.stdout += data?.toString() || "";
     });
     // spit stderr to screen
     child.stderr.on("data", (data) => {
       process.stdout.write(data.toString());
-      execOutput.stderr += data ? data.toString() : "";
     });
 
     child.on("close", (code) => {
@@ -89,7 +87,7 @@ async function runCommand(params) {
 
   handleTestimResponse(execOutput.stdout);
 
-  return execOutput;
+  return execOutput.stdout;
 }
 
 async function assertPathExistence(path) {
@@ -189,7 +187,7 @@ async function installTestim() {
 }
 
 function prepareArgs(testimCommand, args) {
-  const testimArgs = testimCommand.split(" ");
+  const testimArgs = testimCommand.split(" ").map((el) => el.replace(/(^"|"$)/g, "")); // remove start and end quotes
   args.push(...testimArgs);
 
   if (!testimArgs.includes("--browser-timeout")) {
