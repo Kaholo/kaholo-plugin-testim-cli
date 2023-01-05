@@ -18,6 +18,8 @@ In this example the Testim CLI Access Token is `CDbDF05hRsTCI49Y0lCuYbI49Y0lCuYb
 
 These two parameters are stored in Kaholo Accounts, which is found alongside Plugin Settings, accessed by clicking on the plugin's name in Kaholo's Setting | Plugins page. The Default Grid can also be configured there in Settings.
 
+Additionally, to run tests on BrowserStack local instance, BrowserStackApiKey should be specified.
+
 ## Plugin Installation
 For download, installation, upgrade, downgrade and troubleshooting of plugins in general, see [INSTALL.md](./INSTALL.md).
 
@@ -36,6 +38,25 @@ This is the Testim command you wish to execute with the exception of `--token`, 
 The simplest test command you can run even without valid token or project is `testim --version`.
 
 If the command is omitted, this is equivalent to running command `testim`.
+
+### Parameter: Install Latest Testim CLI
+If checked, the latest Testim CLI will be installed before running the command. If already installed, unchecking this option may speed up the execution by a few seconds.
+
+## Method: run Testim on BrowserStackLocal
+This method runs Testim test on BrowserStack Local instance.
+
+### Parameter: BrowserStack Local Identifier
+Optional paramter for defining local id of BrowserStackLocal instance.
+
+### Parameter: Testim Grid
+This is the name of the Testim Grid the command should work with. It will be included in the command for you with the `--grid` switch.
+
+### Parameter: Command
+Testim command (excluding `--token`, `--project`, `--grid` and `--browserstack-options` arguments)
+
+### Parameter: Path to BrowserStackOptions
+This is passed to Testim CLI command, that starts tests execution as `--browserstack-options`.
+See more: https://www.browserstack.com/docs/automate/cypress/cypress-capabilities
 
 ### Parameter: Install Latest Testim CLI
 If checked, the latest Testim CLI will be installed before running the command. If already installed, unchecking this option may speed up the execution by a few seconds.
