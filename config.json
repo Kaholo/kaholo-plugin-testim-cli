@@ -96,7 +96,7 @@
     },
     {
       "name": "runCommandBS",
-      "viewName": "run Testim on BrowserStackLocal",
+      "viewName": "Run Testim on BrowserStackLocal",
       "params": [
         {
           "name": "localId",
