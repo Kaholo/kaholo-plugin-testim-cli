@@ -46,17 +46,31 @@ If checked, the latest Testim CLI will be installed before running the command. 
 This method runs Testim test on BrowserStack Local instance.
 
 ### Parameter: BrowserStack Local Identifier
-Optional paramter for defining local id of BrowserStackLocal instance.
+Mandatory parameter for defining local id of BrowserStackLocal instance.
 
 ### Parameter: Testim Grid
 This is the name of the Testim Grid the command should work with. It will be included in the command for you with the `--grid` switch.
+
+### Parameter: Install Latest Testim CLI
+If checked, the latest Testim CLI will be installed before running the command. If already installed, unchecking this option may speed up the execution by a few seconds.
+
+### Parameter: Working Directory
+This is an optional working directory should the command require or produce files on the Agent's disk. If ommitted the default working directory in Kaholo 4.x is `/usr/src/app/workspace`.
 
 ### Parameter: Command
 Testim command (excluding `--token`, `--project`, `--grid` and `--browserstack-options` arguments)
 
 ### Parameter: Path to BrowserStackOptions
-This is passed to Testim CLI command, that starts tests execution as `--browserstack-options`.
-See more: https://www.browserstack.com/docs/automate/cypress/cypress-capabilities
+This is passed to Testim CLI command, that starts tests execution as `--browserstack-options`.</br>
+See more: https://help.testim.io/docs/saucelabs-browserstack-options </br>
+Sample file: [here](https://github.com/genesisthomas/testim-browserstack-local-sample)
 
-### Parameter: Install Latest Testim CLI
-If checked, the latest Testim CLI will be installed before running the command. If already installed, unchecking this option may speed up the execution by a few seconds.
+
+## Notes:
+
+- You may need to add a step to stop BrowserStack local if in case of some errors that may leave Browserstack local running in the background.
+- BrowserStackLocal.zip can be overwritten if present in the current directory provided it is of Alpine version.
+- BrowserStack Local method cannot run in parallel, because which ever action completes first will shut down the BS Local instance.
+
+
+ If you are interested in adding more Testim functionality, please let us know! support@kaholo.io.
