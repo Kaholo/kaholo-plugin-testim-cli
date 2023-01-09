@@ -1,7 +1,7 @@
 {
   "name": "testim-cli",
   "viewName": "Testim CLI",
-  "version": "1.1.0",
+  "version": "1.1.0-KP-996-1",
   "type": "executer",
   "execProgram": "node",
   "imgUrl": "logo.png",
@@ -96,7 +96,7 @@
     },
     {
       "name": "runCommandBS",
-      "viewName": "Run Testim on BrowserStackLocal",
+      "viewName": "run Testim on BrowserStackLocal",
       "params": [
         {
           "name": "localId",
